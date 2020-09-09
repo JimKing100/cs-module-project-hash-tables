@@ -1,6 +1,20 @@
 def word_count(s):
-    # Your code here
+    counts = dict()
 
+    punc = ":;,.-+= /\\|[]{}()*^&\""
+    for ele in s:
+        if ele in punc:
+            s = s.replace(ele, " ")
+
+    words = s.lower().split()
+
+    for word in words:
+        if word in counts:
+            counts[word] += 1
+        else:
+            counts[word] = 1
+
+    return counts
 
 
 if __name__ == "__main__":
